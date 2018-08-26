@@ -10,3 +10,5 @@ to classify or make measurements, or as an input to further processing.
 
 Input Datasets on link: https://1drv.ms/u/s!AuO571AQeLa1hAFq5VaCadrKBu7y
 
+Code in active_shape_model.py, contains data pre-processing, alignment with Translation, Rotation, Scaling, PCA.
+
