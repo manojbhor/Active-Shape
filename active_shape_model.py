@@ -338,9 +338,9 @@ def normal_profile_pixels(data, image, ids, pix, llx1, lly1, llx2, lly2,llx3, ll
     
     if pix == 5:
         mark_pixel= np.zeros([12], dtype=int)
-    elif pix == 15:
-        mark_pixel= np.zeros([32], dtype=int)
-        co_points= np.zeros([32], dtype=float)
+    elif pix == 10:
+        mark_pixel= np.zeros([22], dtype=int)
+        co_points= np.zeros([22], dtype=float)
     co_points= []    
     # one side
     for i in range(pix):
@@ -367,7 +367,7 @@ def normal_profile_pixels(data, image, ids, pix, llx1, lly1, llx2, lly2,llx3, ll
     marked_der = xyz/np.sum(abs(xyz))    
     print(ids)
     print( mark_pixel)
-    if pix == 15:
+    if pix == 10:
         
         return co_points, marked_der 
         #print(cords[i])
@@ -399,7 +399,7 @@ print('number of facial keypoints = %d' %(numKeypoints))
 Xx_train, Xx_test, yy_train, yy_test = facialKeypointsDF.iloc[0:2000,:],facialKeypointsDF.iloc[2000:2141,:], faceImagesDB[:,:,0:2000], faceImagesDB[:,:,2000:2141]
 
 training_profile = np.zeros([Xx_train.shape[0], 15, 11])
-test_profile = np.zeros([15, 31])
+test_profile = np.zeros([15, 21])
          #1
 llx11, lly11 = 0,1
 llx21, lly21 = 4,5
@@ -484,21 +484,21 @@ for id1 in range(2000):
     
 training_profile = np.nan_to_num(training_profile[:, :, :])
 
-co_points0, test_profile[0, :] = normal_profile_pixels(Xx_test,yy_test,1,15,llx11,lly11,llx21,lly21,llx31,lly31)
-co_points1, test_profile[1, :] = normal_profile_pixels(Xx_test,yy_test,1,15,llx12,lly12,llx22,lly22,llx32,lly32)
-co_points2,test_profile[2, :] = normal_profile_pixels(Xx_test,yy_test,1,15,llx13,lly13,llx23,lly23,llx33,lly33)
-co_points3,test_profile[3, :] = normal_profile_pixels(Xx_test,yy_test,1,15,llx14,lly14,llx24,lly24,llx34,lly34)
-co_points4,test_profile[4, :] = normal_profile_pixels(Xx_test,yy_test,1,15,llx15,lly15,llx25,lly25,llx35,lly35)
-co_points5,test_profile[5, :] = normal_profile_pixels(Xx_test,yy_test,1,15,llx16,lly16,llx26,lly26,llx36,lly36)
-co_points6,test_profile[6, :] = normal_profile_pixels(Xx_test,yy_test,1,15,llx17,lly17,llx27,lly27,llx37,lly37)
-co_points7,test_profile[7, :] = normal_profile_pixels(Xx_test,yy_test,1,15,llx18,lly18,llx28,lly28,llx38,lly38)
-co_points8,test_profile[8, :] = normal_profile_pixels(Xx_test,yy_test,1,15,llx19,lly19,llx29,lly29,llx39,lly39)
-co_points9,test_profile[9, :] = normal_profile_pixels(Xx_test,yy_test,1,15,llx110,lly110,llx210,lly210,llx310,lly310)
-co_points10,test_profile[10, :] = normal_profile_pixels(Xx_test,yy_test,1,15,llx111,lly111,llx211,lly211,llx311,lly311)
-co_points11,test_profile[11, :] = normal_profile_pixels(Xx_test,yy_test,1,15,llx112,lly112,llx212,lly212,llx312,lly312)
-co_points12,test_profile[12, :] = normal_profile_pixels(Xx_test,yy_test,1,15,llx113,lly113,llx213,lly213,llx313,lly313)
-co_points13,test_profile[13, :] = normal_profile_pixels(Xx_test,yy_test,1,15,llx114,lly114,llx214,lly214,llx314,lly314)
-co_points14,test_profile[14, :] = normal_profile_pixels(Xx_test,yy_test,1,15,llx115,lly115,llx215,lly215,llx315,lly315)
+co_points0, test_profile[0, :] = normal_profile_pixels(Xx_test,yy_test,1,10,llx11,lly11,llx21,lly21,llx31,lly31)
+co_points1, test_profile[1, :] = normal_profile_pixels(Xx_test,yy_test,1,10,llx12,lly12,llx22,lly22,llx32,lly32)
+co_points2,test_profile[2, :] = normal_profile_pixels(Xx_test,yy_test,1,10,llx13,lly13,llx23,lly23,llx33,lly33)
+co_points3,test_profile[3, :] = normal_profile_pixels(Xx_test,yy_test,1,10,llx14,lly14,llx24,lly24,llx34,lly34)
+co_points4,test_profile[4, :] = normal_profile_pixels(Xx_test,yy_test,1,10,llx15,lly15,llx25,lly25,llx35,lly35)
+co_points5,test_profile[5, :] = normal_profile_pixels(Xx_test,yy_test,1,10,llx16,lly16,llx26,lly26,llx36,lly36)
+co_points6,test_profile[6, :] = normal_profile_pixels(Xx_test,yy_test,1,10,llx17,lly17,llx27,lly27,llx37,lly37)
+co_points7,test_profile[7, :] = normal_profile_pixels(Xx_test,yy_test,1,10,llx18,lly18,llx28,lly28,llx38,lly38)
+co_points8,test_profile[8, :] = normal_profile_pixels(Xx_test,yy_test,1,10,llx19,lly19,llx29,lly29,llx39,lly39)
+co_points9,test_profile[9, :] = normal_profile_pixels(Xx_test,yy_test,1,10,llx110,lly110,llx210,lly210,llx310,lly310)
+co_points10,test_profile[10, :] = normal_profile_pixels(Xx_test,yy_test,1,10,llx111,lly111,llx211,lly211,llx311,lly311)
+co_points11,test_profile[11, :] = normal_profile_pixels(Xx_test,yy_test,1,10,llx112,lly112,llx212,lly212,llx312,lly312)
+co_points12,test_profile[12, :] = normal_profile_pixels(Xx_test,yy_test,1,10,llx113,lly113,llx213,lly213,llx313,lly313)
+co_points13,test_profile[13, :] = normal_profile_pixels(Xx_test,yy_test,1,10,llx114,lly114,llx214,lly214,llx314,lly314)
+co_points14,test_profile[14, :] = normal_profile_pixels(Xx_test,yy_test,1,10,llx115,lly115,llx215,lly215,llx315,lly315)
 
 
 
@@ -518,7 +518,7 @@ mean_training_profile = np.mean(training_profile[:,:,:],axis = 0)
 dist1_argmin = []
 for i in range(15):
     dist1=[]
-    for j in range(31 - 11 +1):
+    for j in range(21 - 11 +1):
         abc = cov_training_profile[i,:,:]
         dist = distance.mahalanobis(test_profile[i,j:j+11],mean_training_profile[i,:], abc)
         print(dist)
@@ -598,24 +598,22 @@ while True:
      #if the convergence did  change, break the cycle
     i += 1
      #if new != current:
-    if i % 70 == 0:
+    if i % 50 == 0:
         break
 
-    
+
+# approx 5-10% error on test image for 2-3 points    
 # try n run
-# show a random subset of images from the dataset
+# show a test image from the dataset
 box1 = yy_test[:,:,1]
 
 plt.close('all')
 
-
 shift_y, shift_x = np.array(box1.shape[:2]) / 2.
-
 x_feature_coords = np.array(xx[::2].tolist() + shift_x)
 y_feature_coords = np.array(xx[1::2].tolist() + shift_y)
 plt.imshow(box1, cmap='gray');
 plt.scatter(x_feature_coords,y_feature_coords,c='r',s=12)
 #plt.set_axis_off()
 #ax.set_title('image index = %d' %(xx),fontsize=10)
-
 
